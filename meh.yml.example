@@ -1,0 +1,82 @@
+# Meh Expander configuration file
+
+# This file holds your snippets. They work in every application while meh
+# is running. Saving this file applies the changes within about a second.
+
+# Each snippet is a substitution rule: when you type the "trigger" text,
+# meh deletes it and types the "replace" text in its place.
+
+# Double-tap this key to pause / resume meh: ALT, CTRL, SHIFT or OFF
+toggle_key: OFF
+
+matches:
+  # NOTE: this file is YAML, so pay attention to the indentation!
+  # Every snippet starts with "- " and its lines line up under "trigger".
+
+  # Simple text replacement:
+  #   - trigger: ":hi"
+  #     replace: "Hi there!"
+
+  # Several triggers for the same text:
+  #   - triggers: [":ty", ":thx"]
+  #     replace: "Thank you!"
+
+  # Several lines: "|-" keeps the line breaks ("|" also adds one at the end)
+  #   - trigger: ":sig"
+  #     replace: |-
+  #       Best regards,
+  #       Your name
+
+  # Cursor placement: $|$ marks where the cursor ends up
+  #   - trigger: ":dear"
+  #     replace: "Dear $|$,"
+
+  # Whole word only, no colon needed: expands after a space, Enter or punctuation.
+  # propagate_case: brb -> be right back, Brb -> Be right back, BRB -> BE RIGHT BACK
+  #   - trigger: "brb"
+  #     replace: "be right back"
+  #     word: true
+  #     propagate_case: true
+
+  # Snippets can also be dynamic, using {{name}} and a "vars" list.
+  # Var types: date, clipboard, echo, random, shell (see the examples below)
+
+  # Print the current date (%d day, %m month, %Y year, %H:%M time)
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Print the output of a PowerShell command (add  shell: cmd  under params for cmd)
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # Pick one at random:
+  #   - trigger: ":bye"
+  #     replace: "{{word}}!"
+  #     vars:
+  #       - name: word
+  #         type: random
+  #         params:
+  #           choices: ["Bye", "See you", "Take care"]
+
+  # Paste what's on the clipboard inside other text:
+  #   - trigger: ":quote"
+  #     replace: "\"{{clip}}\""
+  #     vars:
+  #       - name: clip
+  #         type: clipboard
+
+  # ---- Your snippets ----
+
+  - triggers: [":lk"]
+    replace: "looking into it"
+

@@ -1,0 +1,9 @@
+# Personal snippets; meh.yml.example is the shared template
+meh.yml
+
+# Python
+__pycache__/
+*.py[cod]
+
+# uv / virtual environment
+.venv/

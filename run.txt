@@ -1,0 +1,3 @@
+Run this in the project dir
+
+uv run pythonw meh.py
